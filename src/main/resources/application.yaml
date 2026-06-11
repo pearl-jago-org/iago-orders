@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres.iago-dev.svc.cluster.local:5432/iago
-    username: iago
-    password: secret
+    url: jdbc:postgresql://${POSTGRES_HOST}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -16,3 +16,4 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+
