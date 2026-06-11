@@ -1,11 +1,12 @@
-FROM eclipse-temurin:17-jre-alpine3.21 AS build
+FROM maven:3.9.8-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY pom.xml .
 RUN mvn -q -e -B dependency:go-offline
 COPY src ./src
 RUN mvn -q -e -B package -DskipTests
 
-FROM eclipse-temurin:17-jre-alpine3.21
+FROM eclipse-temurin:17-jre-alpine3.20
+RUN apk update && apk upgrade
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
