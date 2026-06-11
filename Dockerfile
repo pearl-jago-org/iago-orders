@@ -8,7 +8,7 @@ COPY src ./src
 RUN mvn -q -e -B package -DskipTests
 
 
-FROM ghcr.io/pearl-jago-org/base-java17:1.0.0
+FROM ghcr.io/pearl-jago-org/base-java17:1.0.1
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
