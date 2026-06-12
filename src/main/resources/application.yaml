@@ -21,3 +21,12 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+    org.springframework.jdbc: DEBUG
+    org.flywaydb: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.springframework.boot.autoconfigure.jdbc: DEBUG
+
+debug: true
